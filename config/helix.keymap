@@ -15,6 +15,12 @@
 #define MO      1
 #define MS      2
 
+#define MOUSE_STEP 1200
+#define MMV_MOVE_UP    &mmv MOVE_VERT(-MOUSE_STEP)
+#define MMV_MOVE_DOWN  &mmv MOVE_VERT(MOUSE_STEP)
+#define MMV_MOVE_LEFT  &mmv MOVE_HOR(-MOUSE_STEP)
+#define MMV_MOVE_RIGHT &mmv MOVE_HOR(MOUSE_STEP)
+
 / {
     behaviors {
         lt {
@@ -49,7 +55,7 @@
             bindings = <
 &none  &kp F1  &kp F2         &kp F3           &kp F4         &kp F5                          &kp F6 &kp F7   &kp F8     &kp F9   &kp F10 &kp DEL
 &trans &kp F11 &kp F12        &mwh SCROLL_DOWN &mwh SCROLL_UP &none                           &none  &none    &none      &none    &none   &none
-&trans &none   &mmv MOVE_LEFT &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT                 &none  &mkp MB1 &mkp MB3   &mkp MB2 &none   &none
+&trans &none   MMV_MOVE_LEFT  MMV_MOVE_DOWN    MMV_MOVE_UP    MMV_MOVE_RIGHT                  &none  &mkp MB1 &mkp MB3   &mkp MB2 &none   &none
 &trans &none   &none          &none            &none          &none           &none     &none &none  &none    &none      &none    &none   &none
 &trans &trans  &trans         &none            &none          &trans          &kp SPACE &none &trans &none    &bt BT_CLR &trans   &trans  &trans
             >;
